@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[sherlock.heroku.com]]></title>
+  <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
+  <link href="http://sherlock.heroku.com/"/>
+  <updated>2012-01-31T22:34:55-06:00</updated>
+  <id>http://sherlock.heroku.com/</id>
+  <author>
+    <name><![CDATA[Thomas Dziedzic]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress Rocks]]></title>
+    <link href="http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/"/>
+    <updated>2012-01-31T20:55:00-06:00</updated>
+    <id>http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks</id>
+    <content type="html"><![CDATA[<p>Just set up my blog with <a href="http://octopress.org/">octopress</a> following Sam de Freyssinet&#8217;s thorough <a href="http://def.reyssi.net/blog/2012/01/14/get-blogging-with-octopress-on-heroku">blog post</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
