@@ -15,7 +15,7 @@ I maintain a couple of packages for archlinux and it is important for me to chec
 When I first started packaging, I manually checked for new packages by going to the package's website and verifying that there was no new version.
 This got tedious, and repetitive very fast. This was about the time I came across [urlwatch](http://thp.io/2008/urlwatch/).
 
-Urlwatch is a tool that watches websites and commands for changes since you last ran them.
+Urlwatch is a tool that watches websites and commands for changes since you last ran it.
 This allowed you to initially take some time to set it up.
 Then each subsequent run will fetch all the webpages and diff them against the previous versions it has in its cache.
 This was better and made me actually want to check for new versions. Except this came with its own problems:
@@ -29,9 +29,9 @@ I realized that checking for new tags would probably be the best way to check fo
 
 *Tagurit*
 
-As a result of the above limitations/frustrations with urlwatch, I decided to write a small tool in ruby called tagurit.
+As a result of the above imperfections with urlwatch, I decided to write a small tool in ruby called tagurit.
 One benefit this brought was simple configuration which meant you only had to paste the url to the repository and the tool does the rest.
-Also, false positives are practically nonexistent, besides development version tags.
+The only false positives you will get with tagurit is when upstream tags development versions.
 
 I use this tool quite often and it does its job perfectly.
 There are still situations were something like urlwatch is required to check for new versions of a package:
