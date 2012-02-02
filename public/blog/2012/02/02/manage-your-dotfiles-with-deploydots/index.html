@@ -5,14 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - sherlock.heroku.com</title>
+  <title>Manage your dotfiles with deploydots - sherlock.heroku.com</title>
   <meta name="author" content="Thomas Dziedzic">
 
   
-  <meta name="description" content="Blog Archive 2012 Manage your dotfiles with deploydots
-Feb 02 2012 Watching for new tags in git and other VCSs
-Feb 01 2012 Octopress Rocks
-Jan 31 &hellip;">
+  <meta name="description" content="I recently folded in and joined the masses that manage their dotfiles through git.
+There were many available tools, but I was surprised that none of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +19,7 @@ Jan 31 &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sherlock.heroku.com/blog/archives">
+  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -66,52 +64,104 @@ Jan 31 &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">Manage Your Dotfiles With Deploydots</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-02T10:26:00-06:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>I recently folded in and joined the masses that manage their dotfiles through git.
+There were many available tools, but I was surprised that none of the tools for managing your dotfiles folder did what I wanted:</p>
 
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/">Manage your dotfiles with deploydots</a></h1>
-<time datetime="2012-02-02T10:26:00-06:00" pubdate><span class='month'>Feb</span> <span class='day'>02</span> <span class='year'>2012</span></time>
-
-
-</article>
+<ol>
+<li>I wanted a seperate tool.</li>
+<li>Symlinking files, making folders.</li>
+<li>Have the toplevel files in the dotfiles folder not have a &#8216;.&#8217; in front of them.</li>
+</ol>
 
 
+<p>For the 1st point, I wanted this to be able to have a definitive source to get the tool instead of having to rely on a homegrown script put into the directory as an afterthought.
+The 2nd point was to keep ~/dotfiles from getting cluttered with temporary files, logs, and such.
+The 3rd point is so that I can simply run &#8220;ls&#8221; to see the available folders.
+An added benefit from the 3rd point was that ~/.git wouldn&#8217;t conflict with ~/dotfiles/.git.</p>
 
-<article>
-  
-<h1><a href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/">Watching for new tags in git and other VCSs</a></h1>
-<time datetime="2012-02-01T09:57:00-06:00" pubdate><span class='month'>Feb</span> <span class='day'>01</span> <span class='year'>2012</span></time>
+<p>You can find deploydots at <a href="https://github.com/gostrc/deploydots">github</a>, and <a href="https://rubygems.org/gems/deploydots">rubygems</a>.</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/01/31/octopress-rocks/">Octopress Rocks</a></h1>
-<time datetime="2012-01-31T20:55:00-06:00" pubdate><span class='month'>Jan</span> <span class='day'>31</span> <span class='year'>2012</span></time>
-
-
-</article>
-
+<p>Also, you can find my dotfiles at <a href="https://github.com/gostrc/dotfiles">github</a>.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Thomas Dziedzic</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-02T10:26:00-06:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/" title="Previous Post: Watching for new tags in git and other VCSs">&laquo; Watching for new tags in git and other VCSs</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -159,7 +209,10 @@ Jan 31 &hellip;">
       var disqus_shortname = 'sherlockheroku';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/';
+        var disqus_url = 'http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

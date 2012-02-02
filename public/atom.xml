@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-01T12:31:02-06:00</updated>
+  <updated>2012-02-02T10:41:41-06:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Manage your dotfiles with deploydots]]></title>
+    <link href="http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/"/>
+    <updated>2012-02-02T10:26:00-06:00</updated>
+    <id>http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots</id>
+    <content type="html"><![CDATA[<p>I recently folded in and joined the masses that manage their dotfiles through git.
+There were many available tools, but I was surprised that none of the tools for managing your dotfiles folder did what I wanted:</p>
+
+<ol>
+<li>I wanted a seperate tool.</li>
+<li>Symlinking files, making folders.</li>
+<li>Have the toplevel files in the dotfiles folder not have a &#8216;.&#8217; in front of them.</li>
+</ol>
+
+
+<p>For the 1st point, I wanted this to be able to have a definitive source to get the tool instead of having to rely on a homegrown script put into the directory as an afterthought.
+The 2nd point was to keep ~/dotfiles from getting cluttered with temporary files, logs, and such.
+The 3rd point is so that I can simply run &#8220;ls&#8221; to see the available folders.
+An added benefit from the 3rd point was that ~/.git wouldn&#8217;t conflict with ~/dotfiles/.git.</p>
+
+<p>You can find deploydots at <a href="https://github.com/gostrc/deploydots">github</a>, and <a href="https://rubygems.org/gems/deploydots">rubygems</a>.</p>
+
+<p>Also, you can find my dotfiles at <a href="https://github.com/gostrc/dotfiles">github</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Watching for new tags in git and other VCSs]]></title>
@@ -27,7 +53,7 @@ This is especially true for a distro like <a href="http://www.archlinux.org/">ar
 When I first started packaging, I manually checked for new packages by going to the package&#8217;s website and verifying that there was no new version.
 This got tedious, and repetitive very fast. This was about the time I came across <a href="http://thp.io/2008/urlwatch/">urlwatch</a>.</p>
 
-<p>Urlwatch is a tool that watches websites and commands for changes since you last ran them.
+<p>Urlwatch is a tool that watches websites and commands for changes since you last ran it.
 This allowed you to initially take some time to set it up.
 Then each subsequent run will fetch all the webpages and diff them against the previous versions it has in its cache.
 This was better and made me actually want to check for new versions. Except this came with its own problems:</p>
@@ -44,22 +70,21 @@ I realized that checking for new tags would probably be the best way to check fo
 
 <p><em>Tagurit</em></p>
 
-<p>As a result of the above limitations/frustrations with urlwatch, I decided to write a small tool in ruby called tagurit.
+<p>As a result of the above imperfections with urlwatch, I decided to write a small tool in ruby called tagurit.
 One benefit this brought was simple configuration which meant you only had to paste the url to the repository and the tool does the rest.
-Also, false positives are practically nonexistent, besides development version tags.</p>
+The only false positives you will get with tagurit is when upstream tags development versions.</p>
 
 <p>I use this tool quite often and it does its job perfectly.
 There are still situations were something like urlwatch is required to check for new versions of a package:</p>
 
 <ol>
-<li>Upstream doesn&#8217;t use a version control system.</li>
-<li>Upstream doesn&#8217;t properly use the VCS and doesn&#8217;t use tags.</li>
+<li>Upstream doesn&#8217;t use a version control system or doesn&#8217;t use tags.</li>
 <li>Upstream uses an unsupported VCS (not git, svn, or hg).</li>
 </ol>
 
 
-<p>The 1st and 2nd items can&#8217;t be addressed by me.
-But the 3rd item is because I don&#8217;t maintain any packages that use another VCS.
+<p>The 1st item can&#8217;t be addressed by me.
+But the 2nd item exists because I don&#8217;t maintain any packages that use another VCS.
 If you want support for a new VCS type that supports tags, I would be happy to look into it if you open a feature request on github.</p>
 
 <p>Checkout tagurit on <a href="https://github.com/gostrc/tagurit">github</a>, or <a href="https://rubygems.org/gems/tagurit">rubygems</a>.</p>

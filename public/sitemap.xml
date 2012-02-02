@@ -8,14 +8,20 @@
         <loc>
             http://sherlock.heroku.com/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/
         </loc>
-        <lastmod>2012-02-01T12:30:47-06:00</lastmod>
+        <lastmod>2012-02-02T10:39:02-06:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://sherlock.heroku.com/blog/2012/02/02/manage-your-dotfiles-with-deploydots/
+        </loc>
+        <lastmod>2012-02-02T10:39:11-06:00</lastmod>
     </url>
     <url>
         <loc>http://sherlock.heroku.com/blog/archives/</loc>
-        <lastmod>2012-02-01T12:30:47-06:00</lastmod>
+        <lastmod>2012-02-02T10:39:11-06:00</lastmod>
     </url>
     <url>
         <loc>http://sherlock.heroku.com/</loc>
-        <lastmod>2012-02-01T12:30:47-06:00</lastmod>
+        <lastmod>2012-02-02T10:39:11-06:00</lastmod>
     </url>
 </urlset>

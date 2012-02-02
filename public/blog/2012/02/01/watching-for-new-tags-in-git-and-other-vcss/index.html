@@ -102,7 +102,7 @@ This is especially true for a distro like <a href="http://www.archlinux.org/">ar
 When I first started packaging, I manually checked for new packages by going to the package&#8217;s website and verifying that there was no new version.
 This got tedious, and repetitive very fast. This was about the time I came across <a href="http://thp.io/2008/urlwatch/">urlwatch</a>.</p>
 
-<p>Urlwatch is a tool that watches websites and commands for changes since you last ran them.
+<p>Urlwatch is a tool that watches websites and commands for changes since you last ran it.
 This allowed you to initially take some time to set it up.
 Then each subsequent run will fetch all the webpages and diff them against the previous versions it has in its cache.
 This was better and made me actually want to check for new versions. Except this came with its own problems:</p>
@@ -119,22 +119,21 @@ I realized that checking for new tags would probably be the best way to check fo
 
 <p><em>Tagurit</em></p>
 
-<p>As a result of the above limitations/frustrations with urlwatch, I decided to write a small tool in ruby called tagurit.
+<p>As a result of the above imperfections with urlwatch, I decided to write a small tool in ruby called tagurit.
 One benefit this brought was simple configuration which meant you only had to paste the url to the repository and the tool does the rest.
-Also, false positives are practically nonexistent, besides development version tags.</p>
+The only false positives you will get with tagurit is when upstream tags development versions.</p>
 
 <p>I use this tool quite often and it does its job perfectly.
 There are still situations were something like urlwatch is required to check for new versions of a package:</p>
 
 <ol>
-<li>Upstream doesn&#8217;t use a version control system.</li>
-<li>Upstream doesn&#8217;t properly use the VCS and doesn&#8217;t use tags.</li>
+<li>Upstream doesn&#8217;t use a version control system or doesn&#8217;t use tags.</li>
 <li>Upstream uses an unsupported VCS (not git, svn, or hg).</li>
 </ol>
 
 
-<p>The 1st and 2nd items can&#8217;t be addressed by me.
-But the 3rd item is because I don&#8217;t maintain any packages that use another VCS.
+<p>The 1st item can&#8217;t be addressed by me.
+But the 2nd item exists because I don&#8217;t maintain any packages that use another VCS.
 If you want support for a new VCS type that supports tags, I would be happy to look into it if you open a feature request on github.</p>
 
 <p>Checkout tagurit on <a href="https://github.com/gostrc/tagurit">github</a>, or <a href="https://rubygems.org/gems/tagurit">rubygems</a>.</p>
@@ -180,6 +179,8 @@ If you want support for a new VCS type that supports tags, I would be happy to l
         <a class="basic-alignment left" href="/blog/2012/01/31/octopress-rocks/" title="Previous Post: Octopress Rocks">&laquo; Octopress Rocks</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/" title="next Post: Manage your dotfiles with deploydots">Manage your dotfiles with deploydots &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -197,6 +198,10 @@ If you want support for a new VCS type that supports tags, I would be happy to l
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/">Manage your dotfiles with deploydots</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/">Watching for new tags in git and other VCSs</a>
