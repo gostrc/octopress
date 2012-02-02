@@ -36,12 +36,11 @@ The only false positives you will get with tagurit is when upstream tags develop
 I use this tool quite often and it does its job perfectly.
 There are still situations were something like urlwatch is required to check for new versions of a package:
 
-1. Upstream doesn't use a version control system.
-2. Upstream doesn't properly use the VCS and doesn't use tags.
-3. Upstream uses an unsupported VCS (not git, svn, or hg).
+1. Upstream doesn't use a version control system or doesn't use tags.
+2. Upstream uses an unsupported VCS (not git, svn, or hg).
 
-The 1st and 2nd items can't be addressed by me.
-But the 3rd item is because I don't maintain any packages that use another VCS.
+The 1st item can't be addressed by me.
+But the 2nd item exists because I don't maintain any packages that use another VCS.
 If you want support for a new VCS type that supports tags, I would be happy to look into it if you open a feature request on github.
 
 Checkout tagurit on [github](https://github.com/gostrc/tagurit), or [rubygems](https://rubygems.org/gems/tagurit).
