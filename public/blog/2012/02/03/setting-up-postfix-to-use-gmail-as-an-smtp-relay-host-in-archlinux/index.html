@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>sherlock.heroku.com</title>
+  <title>setting up postfix to use gmail as a smtp relay host in archlinux - sherlock.heroku.com</title>
   <meta name="author" content="Thomas Dziedzic">
 
   
@@ -19,7 +19,7 @@ The amount of options you can configure &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sherlock.heroku.com">
+  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,15 +63,12 @@ The amount of options you can configure &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/">Setting Up Postfix to Use Gmail as a Smtp Relay Host in Archlinux</a></h1>
+      <h1 class="entry-title">Setting Up Postfix to Use Gmail as a Smtp Relay Host in Archlinux</h1>
     
     
       <p class="meta">
@@ -89,14 +86,14 @@ The amount of options you can configure &hellip;">
 
 <time datetime="2012-02-03T10:55:00-06:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2012</time>
         
-         | <a href="/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Setting up a MTA (mail transfer agent) to use gmail as a smtp relay host seemed to be a daunting task for me.
+<div class="entry-content"><p>Setting up a MTA (mail transfer agent) to use gmail as a smtp relay host seemed to be a daunting task for me.
 The amount of options you can configure postfix with would fill up a book.</p>
 
 <p>I came across Matthew Hawthorne&#8217;s <a href="http://mhawthorne.net/posts/postfix-configuring-gmail-as-relay.html">excellent post</a> on how to do exactly this.
@@ -175,77 +172,16 @@ I will repeat his post here, modifying it slightly for archlinux.</p>
 <p>Bonus: you can control where your local mail gets forwarded to by creating a <em>~/.forward</em> file and adding your email to the file so that local mail will get sent to you.
 Check out the man page for aliases(5) for more info.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/">Manage Your Dotfiles With Deploydots</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Thomas Dziedzic</span></span>
 
-<time datetime="2012-02-02T10:26:00-06:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2012</time>
-        
-         | <a href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently folded in and joined the masses that manage their dotfiles through git.
-There were many available tools, but I was surprised that none of the tools for managing your dotfiles folder did what I wanted:</p>
-
-<ol>
-<li>I wanted a seperate tool.</li>
-<li>Symlinking files, making folders.</li>
-<li>Have the toplevel files in the dotfiles folder not have a &#8216;.&#8217; in front of them.</li>
-</ol>
-
-
-<p>For the 1st point, I wanted this to be able to have a definitive source to get the tool instead of having to rely on a homegrown script put into the directory as an afterthought.
-The 2nd point was to keep ~/dotfiles from getting cluttered with temporary files, logs, and such.
-The 3rd point is so that I can simply run &#8220;ls&#8221; to see the available folders.
-An added benefit from the 3rd point was that ~/.git wouldn&#8217;t conflict with ~/dotfiles/.git.</p>
-
-<p>You can find deploydots at <a href="https://github.com/gostrc/deploydots">github</a>, and <a href="https://rubygems.org/gems/deploydots">rubygems</a>.</p>
-
-<p>Also, you can find my dotfiles at <a href="https://github.com/gostrc/dotfiles">github</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/">Watching for New Tags in Git and Other VCSs</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -257,110 +193,38 @@ An added benefit from the 3rd point was that ~/.git wouldn&#8217;t conflict with
   
 
 
-<time datetime="2012-02-01T09:57:00-06:00" pubdate data-updated="true">Feb 1<span>st</span>, 2012</time>
-        
-         | <a href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>Background</em></p>
-
-<p>As any packager will tell you, part of the work involves updating a package to the latest version.
-This is especially true for a distro like <a href="http://www.archlinux.org/">archlinux</a> where it is known for its extremely up to date, stable packages.</p>
-
-<p>I maintain a couple of packages for archlinux and it is important for me to check for new versions of a package.
-When I first started packaging, I manually checked for new packages by going to the package&#8217;s website and verifying that there was no new version.
-This got tedious, and repetitive very fast. This was about the time I came across <a href="http://thp.io/2008/urlwatch/">urlwatch</a>.</p>
-
-<p>Urlwatch is a tool that watches websites and commands for changes since you last ran it.
-This allowed you to initially take some time to set it up.
-Then each subsequent run will fetch all the webpages and diff them against the previous versions it has in its cache.
-This was better and made me actually want to check for new versions. Except this came with its own problems:</p>
-
-<ol>
-<li>Lots of false positives due to dynamic content (e.g., ratings, user comments, etc.)</li>
-<li>You need to write filters on a per site basis to minimize false positives.</li>
-<li>Mercurial (hg) repositories require you to have a full copy of the repository locally to list out all the tags.</li>
-</ol>
-
-
-<p>I know that upstream projects that use version control systems (git, svn, hg, &#8230;) usually create tags whenever they create a new release.
-I realized that checking for new tags would probably be the best way to check for new package versions since you might even get notified before any news item is even released.</p>
-
-<p><em>Tagurit</em></p>
-
-<p>As a result of the above imperfections with urlwatch, I decided to write a small tool in ruby called tagurit.
-One benefit this brought was simple configuration which meant you only had to paste the url to the repository and the tool does the rest.
-The only false positives you will get with tagurit is when upstream tags development versions.</p>
-
-<p>I use this tool quite often and it does its job perfectly.
-There are still situations were something like urlwatch is required to check for new versions of a package:</p>
-
-<ol>
-<li>Upstream doesn&#8217;t use a version control system or doesn&#8217;t use tags.</li>
-<li>Upstream uses an unsupported VCS (not git, svn, or hg).</li>
-</ol>
-
-
-<p>The 1st item can&#8217;t be addressed by me.
-But the 2nd item exists because I don&#8217;t maintain any packages that use another VCS.
-If you want support for a new VCS type that supports tags, I would be happy to look into it if you open a feature request on github.</p>
-
-<p>Checkout tagurit on <a href="https://github.com/gostrc/tagurit">github</a>, or <a href="https://rubygems.org/gems/tagurit">rubygems</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2012-02-03T10:55:00-06:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2012</time>
       
-  <header>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2012/01/31/octopress-rocks/">Octopress Rocks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
+      <div class="sharing">
   
-
-
-<time datetime="2012-01-31T20:55:00-06:00" pubdate data-updated="true">Jan 31<span>st</span>, 2012</time>
-        
-         | <a href="/blog/2012/01/31/octopress-rocks/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just set up my blog with <a href="http://octopress.org/">octopress</a> following Sam de Freyssinet&#8217;s thorough <a href="http://def.reyssi.net/blog/2012/01/14/get-blogging-with-octopress-on-heroku">blog post</a>.</p>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/02/02/manage-your-dotfiles-with-deploydots/" title="Previous Post: Manage your dotfiles with deploydots">&laquo; Manage your dotfiles with deploydots</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -394,6 +258,7 @@ If you want support for a new VCS type that supports tags, I would be happy to l
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -408,7 +273,10 @@ If you want support for a new VCS type that supports tags, I would be happy to l
       var disqus_shortname = 'sherlockheroku';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/';
+        var disqus_url = 'http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

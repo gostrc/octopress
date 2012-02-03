@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-02T10:41:41-06:00</updated>
+  <updated>2012-02-03T12:43:56-06:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[setting up postfix to use gmail as a smtp relay host in archlinux]]></title>
+    <link href="http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/"/>
+    <updated>2012-02-03T10:55:00-06:00</updated>
+    <id>http://sherlock.heroku.com/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux</id>
+    <content type="html"><![CDATA[<p>Setting up a MTA (mail transfer agent) to use gmail as a smtp relay host seemed to be a daunting task for me.
+The amount of options you can configure postfix with would fill up a book.</p>
+
+<p>I came across Matthew Hawthorne&#8217;s <a href="http://mhawthorne.net/posts/postfix-configuring-gmail-as-relay.html">excellent post</a> on how to do exactly this.
+I will repeat his post here, modifying it slightly for archlinux.</p>
+
+<p>Step 1, let&#8217;s install postfix.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># pacman -S postfix</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 2, append the following to <em>/etc/postfix/main.cf</em> which will configure postfix for use with gmail.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># sets gmail as relay
+</span><span class='line'>relayhost = [smtp.gmail.com]:587
+</span><span class='line'>
+</span><span class='line'>#  use tls
+</span><span class='line'>smtp_use_tls=yes
+</span><span class='line'>
+</span><span class='line'># use sasl when authenticating to foreign SMTP servers
+</span><span class='line'>smtp_sasl_auth_enable = yes 
+</span><span class='line'>
+</span><span class='line'># path to password map file
+</span><span class='line'>smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+</span><span class='line'>
+</span><span class='line'># list of CAs to trust when verifying server certificate
+</span><span class='line'>smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+</span><span class='line'>
+</span><span class='line'># eliminates default security options which are incompatible with gmail
+</span><span class='line'>smtp_sasl_security_options =</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 3, create a file <em>/etc/postfix/sasl_passwd</em> and add your gmail credentials.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[smtp.gmail.com]:587  username:password</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 4, create a postfix lookup table at <em>/etc/postfix/sasl_passwd.db</em> by running the following command.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># postmap /etc/postfix/sasl_passwd</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 5, start the postfix daemon.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># rc.d start postfix</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 6, run the following command to test.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo 'hello world!' | mail -s 'first email' username@gmail.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you set up everything correctly, you should have sent out an email out to <em>username@gmail.com</em>.</p>
+
+<p>Bonus: you can control where your local mail gets forwarded to by creating a <em>~/.forward</em> file and adding your email to the file so that local mail will get sent to you.
+Check out the man page for aliases(5) for more info.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Manage your dotfiles with deploydots]]></title>
