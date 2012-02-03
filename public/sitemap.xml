@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/</loc>
-        <lastmod>2012-01-31T22:17:28-06:00</lastmod>
+        <lastmod>2012-02-03T12:56:33-06:00</lastmod>
     </url>
     <url>
         <loc>
@@ -24,10 +24,10 @@
     </url>
     <url>
         <loc>http://sherlock.heroku.com/blog/archives/</loc>
-        <lastmod>2012-02-03T12:43:01-06:00</lastmod>
+        <lastmod>2012-02-03T12:56:33-06:00</lastmod>
     </url>
     <url>
         <loc>http://sherlock.heroku.com/</loc>
-        <lastmod>2012-02-03T12:43:01-06:00</lastmod>
+        <lastmod>2012-02-03T12:56:33-06:00</lastmod>
     </url>
 </urlset>

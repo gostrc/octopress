@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-03T12:43:56-06:00</updated>
+  <updated>2012-02-03T12:56:44-06:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -183,6 +183,9 @@ If you want support for a new VCS type that supports tags, I would be happy to l
     <updated>2012-01-31T20:55:00-06:00</updated>
     <id>http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks</id>
     <content type="html"><![CDATA[<p>Just set up my blog with <a href="http://octopress.org/">octopress</a> following Sam de Freyssinet&#8217;s thorough <a href="http://def.reyssi.net/blog/2012/01/14/get-blogging-with-octopress-on-heroku">blog post</a>.</p>
+
+<p>One caveat when setting up octopress under archlinux is that when using code blocks in your post, you will get a pygments error when generating your post.
+An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonzih.org/blog/2011/09/21/fix-octopress-pygments-error-on-arch-linux/">blog post</a>.</p>
 ]]></content>
   </entry>
   
