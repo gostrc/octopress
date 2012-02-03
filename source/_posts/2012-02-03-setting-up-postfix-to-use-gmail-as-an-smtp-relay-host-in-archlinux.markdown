@@ -66,5 +66,5 @@ $ echo 'hello world!' | mail -s 'first email' username@gmail.com
 
 If you set up everything correctly, you should have sent out an email out to *username@gmail.com*.
 
-Bonus: you can control where your local mail gets forwarded to by creating a *~/.forward* file and adding your email to the file so that local mail will get sent to you.
+Bonus: you can control where your local mail gets forwarded to by creating a *~/.forward* file and adding your email to the file so that local mail will get sent to your email account.
 Check out the man page for aliases(5) for more info.
