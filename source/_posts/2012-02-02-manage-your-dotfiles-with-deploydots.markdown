@@ -21,3 +21,7 @@ An added benefit from the 3rd point was that ~/.git wouldn't conflict with ~/dot
 You can find deploydots at [github](https://github.com/gostrc/deploydots), and [rubygems](https://rubygems.org/gems/deploydots).
 
 Also, you can find my dotfiles at [github](https://github.com/gostrc/dotfiles).
+
+Side note for weechat users.
+Weechat currently overwrites the symlinks every time you quit or save the config files.
+I opened a task report for this behavior at the [weechat tracker](https://savannah.nongnu.org/task/?11779).

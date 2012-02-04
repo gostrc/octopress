@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-03T13:38:14-06:00</updated>
+  <updated>2012-02-04T13:36:47-06:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -122,6 +122,10 @@ An added benefit from the 3rd point was that ~/.git wouldn&#8217;t conflict with
 <p>You can find deploydots at <a href="https://github.com/gostrc/deploydots">github</a>, and <a href="https://rubygems.org/gems/deploydots">rubygems</a>.</p>
 
 <p>Also, you can find my dotfiles at <a href="https://github.com/gostrc/dotfiles">github</a>.</p>
+
+<p>Side note for weechat users.
+Weechat currently overwrites the symlinks every time you quit or save the config files.
+I opened a task report for this behavior at the <a href="https://savannah.nongnu.org/task/?11779">weechat tracker</a>.</p>
 ]]></content>
   </entry>
   
