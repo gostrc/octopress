@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress Rocks - sherlock.heroku.com</title>
+  <title>automating checking for new package with crontab - sherlock.heroku.com</title>
   <meta name="author" content="Thomas Dziedzic">
 
   
-  <meta name="description" content="Just set up my blog with octopress following Sam de Freyssinet&#8217;s thorough blog post. One caveat when setting up octopress under archlinux is &hellip;">
+  <meta name="description" content="You might have some command you repeatedly type to check its output.
+I occasionally check for new package updates using tagurit and urlwatch which I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks">
+  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress Rocks</h1>
+      <h1 class="entry-title">Automating Checking for New Package With Crontab</h1>
     
     
       <p class="meta">
@@ -83,7 +84,7 @@
   
 
 
-<time datetime="2012-01-31T20:55:00-06:00" pubdate data-updated="true">Jan 31<span>st</span>, 2012</time>
+<time datetime="2012-02-04T21:30:00-06:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -92,10 +93,44 @@
   </header>
 
 
-<div class="entry-content"><p>Just set up my blog with <a href="http://octopress.org/">octopress</a> following Sam de Freyssinet&#8217;s thorough <a href="http://def.reyssi.net/blog/2012/01/14/get-blogging-with-octopress-on-heroku">blog post</a>.</p>
+<div class="entry-content"><p>You might have some command you repeatedly type to check its output.
+I occasionally check for new package updates using tagurit and urlwatch which I mentioned in a previous post.
+The problem is that it can get tedious running those commands over the terminal every day or week.
+Let&#8217;s automate this.</p>
 
-<p>One caveat when setting up octopress under archlinux is that when using code blocks in your post, you will get a pygments error when generating your post.
-An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonzih.org/blog/2011/09/21/fix-octopress-pygments-error-on-arch-linux/">blog post</a>.</p>
+<p>Setting up cron to run a scheduled command is the perfect solution.
+So let&#8217;s do it.</p>
+
+<p>I will be doing this on archlinux but it should be the same on any computer with the same software installed.</p>
+
+<p>First of all, you have to have the crond daemon running for this to work.
+It is turned on by default on archlinux so we already have that working.</p>
+
+<p>Next, we need to edit our crontab file by running:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ crontab -e</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then for my example, I want to run urlwatch and tagurit every day at 6am and 6pm.
+After I check crontab(5) to check the format of the file, I type the following in:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0 6,18 * * * urlwatch
+</span><span class='line'>0 6,18 * * * tagurit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will run every day, every time our computer is turned on.
+Cron will also send us a message to our local mail account if there is any output from the commands it ran.</p>
+
+<p>Since I want it to deliver it to my gmail account, we first need to set up a postfix daemon to use gmail as a smtp relay host.
+I covered that in a previous blog post.
+I also covered how to set up a <em>~/.forward</em> file in the previous blog post in the bonus section.
+The <em>~/.forward</em> file will route all our local messages to the specified email.
+If you haven&#8217;t done so already, please set that up.</p>
+
+<p>You should now be automatically running and receiving commands via cron!</p>
 </div>
 
 
@@ -118,7 +153,7 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
   
 
 
-<time datetime="2012-01-31T20:55:00-06:00" pubdate data-updated="true">Jan 31<span>st</span>, 2012</time>
+<time datetime="2012-02-04T21:30:00-06:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
       
 
 
@@ -126,7 +161,7 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/" >Tweet</a>
   
   
   
@@ -135,8 +170,8 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/" title="Previous Post: setting up postfix to use gmail as a smtp relay host in archlinux">&laquo; setting up postfix to use gmail as a smtp relay host in archlinux</a>
       
-        <a class="basic-alignment right" href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/" title="next Post: Watching for new tags in git and other VCSs">Watching for new tags in git and other VCSs &raquo;</a>
       
     </p>
   </footer>
@@ -203,8 +238,8 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/';
-        var disqus_url = 'http://sherlock.heroku.com/blog/2012/01/31/octopress-rocks/';
+        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/';
+        var disqus_url = 'http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/';
         var disqus_script = 'embed.js';
       
     (function () {

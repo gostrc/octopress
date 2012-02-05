@@ -9,8 +9,8 @@
   <meta name="author" content="Thomas Dziedzic">
 
   
-  <meta name="description" content="Setting up a MTA (mail transfer agent) to use gmail as a smtp relay host seemed to be a daunting task for me.
-The amount of options you can configure &hellip;">
+  <meta name="description" content="You might have some command you repeatedly type to check its output.
+I occasionally check for new package updates using tagurit and urlwatch which I &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,81 @@ The amount of options you can configure &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/04/automating-checking-for-new-package-with-crontab/">Automating Checking for New Package With Crontab</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-04T21:30:00-06:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/02/04/automating-checking-for-new-package-with-crontab/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>You might have some command you repeatedly type to check its output.
+I occasionally check for new package updates using tagurit and urlwatch which I mentioned in a previous post.
+The problem is that it can get tedious running those commands over the terminal every day or week.
+Let&#8217;s automate this.</p>
+
+<p>Setting up cron to run a scheduled command is the perfect solution.
+So let&#8217;s do it.</p>
+
+<p>I will be doing this on archlinux but it should be the same on any computer with the same software installed.</p>
+
+<p>First of all, you have to have the crond daemon running for this to work.
+It is turned on by default on archlinux so we already have that working.</p>
+
+<p>Next, we need to edit our crontab file by running:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ crontab -e</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then for my example, I want to run urlwatch and tagurit every day at 6am and 6pm.
+After I check crontab(5) to check the format of the file, I type the following in:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0 6,18 * * * urlwatch
+</span><span class='line'>0 6,18 * * * tagurit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will run every day, every time our computer is turned on.
+Cron will also send us a message to our local mail account if there is any output from the commands it ran.</p>
+
+<p>Since I want it to deliver it to my gmail account, we first need to set up a postfix daemon to use gmail as a smtp relay host.
+I covered that in a previous blog post.
+I also covered how to set up a <em>~/.forward</em> file in the previous blog post in the bonus section.
+The <em>~/.forward</em> file will route all our local messages to the specified email.
+If you haven&#8217;t done so already, please set that up.</p>
+
+<p>You should now be automatically running and receiving commands via cron!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -373,6 +448,10 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/02/04/automating-checking-for-new-package-with-crontab/">automating checking for new package with crontab</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/">setting up postfix to use gmail as a smtp relay host in archlinux</a>
