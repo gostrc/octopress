@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "automating checking for new package with crontab"
+title: "automating checking for new packages with crontab"
 date: 2012-02-04 21:30
 comments: true
 categories: 

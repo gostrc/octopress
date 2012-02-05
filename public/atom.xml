@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-04T21:59:23-06:00</updated>
+  <updated>2012-02-04T22:01:19-06:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[automating checking for new package with crontab]]></title>
+    <title type="html"><![CDATA[automating checking for new packages with crontab]]></title>
     <link href="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/"/>
     <updated>2012-02-04T21:30:00-06:00</updated>
     <id>http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab</id>
