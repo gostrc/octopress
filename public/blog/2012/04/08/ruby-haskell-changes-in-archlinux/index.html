@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>automating checking for new packages with crontab - sherlock.heroku.com</title>
+  <title>ruby haskell changes in archlinux - sherlock.heroku.com</title>
   <meta name="author" content="Thomas Dziedzic">
 
   
-  <meta name="description" content="You might have some command you repeatedly type to check its output.
-I occasionally check for new package updates using tagurit and urlwatch which I &hellip;">
+  <meta name="description" content="Since the last post in this blog, I have been busy with cleaning up ruby and haskell support in archlinux.
+Specifically changing the default gem &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ I occasionally check for new package updates using tagurit and urlwatch which I 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab">
+  <link rel="canonical" href="http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@ I occasionally check for new package updates using tagurit and urlwatch which I 
   
   <header>
     
-      <h1 class="entry-title">Automating Checking for New Packages With Crontab</h1>
+      <h1 class="entry-title">Ruby Haskell Changes in Archlinux</h1>
     
     
       <p class="meta">
@@ -84,7 +84,7 @@ I occasionally check for new package updates using tagurit and urlwatch which I 
   
 
 
-<time datetime="2012-02-04T21:30:00-06:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+<time datetime="2012-04-08T00:33:00-05:00" pubdate data-updated="true">Apr 8<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -93,44 +93,23 @@ I occasionally check for new package updates using tagurit and urlwatch which I 
   </header>
 
 
-<div class="entry-content"><p>You might have some command you repeatedly type to check its output.
-I occasionally check for new package updates using tagurit and urlwatch which I mentioned in a previous post.
-The problem is that it can get tedious running those commands over the terminal every day or week.
-Let&#8217;s automate this.</p>
+<div class="entry-content"><p>Since the last post in this blog, I have been busy with cleaning up ruby and haskell support in archlinux.
+Specifically changing the default gem install location for ruby and switching haskell away from the haskell-platform for archlinux.</p>
 
-<p>Setting up cron to run a scheduled command is the perfect solution.
-So let&#8217;s do it.</p>
+<p>The main change I have made to ruby was changing the default gem install location to ~/.gem/
+This change is there to separate pacman installed gems which are installed to /usr/lib/ruby/gems/ and gem installed gems which are now installed to ~/.gem/
+The transition has been rather smooth for such a major default change and there were expected problems, but no serious problems have occurred.
+The main problem that some users faced was that they were unaware of the change, didn&#8217;t read the messages, and wondered why sudo gem install foo installed to /root/.gems/</p>
 
-<p>I will be doing this on archlinux but it should be the same on any computer with the same software installed.</p>
+<p>For haskell, I mainly worked on first removing haskell-platform and all of its packages from the extra repository, and then upgrading ghc to the latest stable release.
+Although most distros choose to use the haskell-platform, it makes less sense to do this in archlinux since it advertises itself as a rolling release distro which uses the latest stable version of software.
+Dropping the haskell-platform has removed a lot of haskell packages from extra and has freed us from having to use the same ghc version as the haskell-platform.
+The only packages remaining in extra are ghc and cabal-install along with their dependencies.
+There have been a few problems that users encountered, but the most common was that they were unaware that the haskell-platform has been removed.
+I did announce the removal, but some people just don&#8217;t read the mailing list.</p>
 
-<p>First of all, you have to have the crond daemon running for this to work.
-It is turned on by default on archlinux so we already have that working.</p>
-
-<p>Next, we need to edit our crontab file by running:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ crontab -e</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then for my example, I want to run urlwatch and tagurit every day at 6am and 6pm.
-After I check crontab(5) to check the format of the file, I type the following in:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0 6,18 * * * urlwatch
-</span><span class='line'>0 6,18 * * * tagurit</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will run every day, every time our computer is turned on.
-Cron will also send us a message to our local mail account if there is any output from the commands it ran.</p>
-
-<p>Since I want it to deliver it to my gmail account, we first need to set up a postfix daemon to use gmail as a smtp relay host.
-I covered that in a previous blog post.
-I also covered how to set up a <em>~/.forward</em> file in the previous blog post in the bonus section.
-The <em>~/.forward</em> file will route all our local messages to the specified email.
-If you haven&#8217;t done so already, please set that up.</p>
-
-<p>You should now be automatically running and receiving commands via cron!</p>
+<p>Both of these changes are a step in the right direction for archlinux in my opinion.
+Hopefully the changes make using these languages a better experience in the long run for arch users.</p>
 </div>
 
 
@@ -153,7 +132,7 @@ If you haven&#8217;t done so already, please set that up.</p>
   
 
 
-<time datetime="2012-02-04T21:30:00-06:00" pubdate data-updated="true">Feb 4<span>th</span>, 2012</time>
+<time datetime="2012-04-08T00:33:00-05:00" pubdate data-updated="true">Apr 8<span>th</span>, 2012</time>
       
 
 
@@ -161,7 +140,7 @@ If you haven&#8217;t done so already, please set that up.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux/" data-via="" data-counturl="http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux/" >Tweet</a>
   
   
   
@@ -170,10 +149,8 @@ If you haven&#8217;t done so already, please set that up.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/02/03/setting-up-postfix-to-use-gmail-as-an-smtp-relay-host-in-archlinux/" title="Previous Post: setting up postfix to use gmail as a smtp relay host in archlinux">&laquo; setting up postfix to use gmail as a smtp relay host in archlinux</a>
+        <a class="basic-alignment left" href="/blog/2012/02/04/automating-checking-for-new-package-with-crontab/" title="Previous Post: automating checking for new packages with crontab">&laquo; automating checking for new packages with crontab</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/04/08/ruby-haskell-changes-in-archlinux/" title="next Post: ruby haskell changes in archlinux">ruby haskell changes in archlinux &raquo;</a>
       
     </p>
   </footer>
@@ -240,8 +217,8 @@ If you haven&#8217;t done so already, please set that up.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/';
-        var disqus_url = 'http://sherlock.heroku.com/blog/2012/02/04/automating-checking-for-new-package-with-crontab/';
+        var disqus_identifier = 'http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux/';
+        var disqus_url = 'http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux/';
         var disqus_script = 'embed.js';
       
     (function () {

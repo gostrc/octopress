@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-02-04T22:01:19-06:00</updated>
+  <updated>2012-04-08T01:05:58-05:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ruby haskell changes in archlinux]]></title>
+    <link href="http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux/"/>
+    <updated>2012-04-08T00:33:00-05:00</updated>
+    <id>http://sherlock.heroku.com/blog/2012/04/08/ruby-haskell-changes-in-archlinux</id>
+    <content type="html"><![CDATA[<p>Since the last post in this blog, I have been busy with cleaning up ruby and haskell support in archlinux.
+Specifically changing the default gem install location for ruby and switching haskell away from the haskell-platform for archlinux.</p>
+
+<p>The main change I have made to ruby was changing the default gem install location to ~/.gem/
+This change is there to separate pacman installed gems which are installed to /usr/lib/ruby/gems/ and gem installed gems which are now installed to ~/.gem/
+The transition has been rather smooth for such a major default change and there were expected problems, but no serious problems have occurred.
+The main problem that some users faced was that they were unaware of the change, didn&#8217;t read the messages, and wondered why sudo gem install foo installed to /root/.gems/</p>
+
+<p>For haskell, I mainly worked on first removing haskell-platform and all of its packages from the extra repository, and then upgrading ghc to the latest stable release.
+Although most distros choose to use the haskell-platform, it makes less sense to do this in archlinux since it advertises itself as a rolling release distro which uses the latest stable version of software.
+Dropping the haskell-platform has removed a lot of haskell packages from extra and has freed us from having to use the same ghc version as the haskell-platform.
+The only packages remaining in extra are ghc and cabal-install along with their dependencies.
+There have been a few problems that users encountered, but the most common was that they were unaware that the haskell-platform has been removed.
+I did announce the removal, but some people just don&#8217;t read the mailing list.</p>
+
+<p>Both of these changes are a step in the right direction for archlinux in my opinion.
+Hopefully the changes make using these languages a better experience in the long run for arch users.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[automating checking for new packages with crontab]]></title>

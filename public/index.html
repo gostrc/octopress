@@ -9,8 +9,8 @@
   <meta name="author" content="Thomas Dziedzic">
 
   
-  <meta name="description" content="You might have some command you repeatedly type to check its output.
-I occasionally check for new package updates using tagurit and urlwatch which I &hellip;">
+  <meta name="description" content="Since the last post in this blog, I have been busy with cleaning up ruby and haskell support in archlinux.
+Specifically changing the default gem &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,60 @@ I occasionally check for new package updates using tagurit and urlwatch which I 
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/08/ruby-haskell-changes-in-archlinux/">Ruby Haskell Changes in Archlinux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-08T00:33:00-05:00" pubdate data-updated="true">Apr 8<span>th</span>, 2012</time>
+        
+         | <a href="/blog/2012/04/08/ruby-haskell-changes-in-archlinux/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Since the last post in this blog, I have been busy with cleaning up ruby and haskell support in archlinux.
+Specifically changing the default gem install location for ruby and switching haskell away from the haskell-platform for archlinux.</p>
+
+<p>The main change I have made to ruby was changing the default gem install location to ~/.gem/
+This change is there to separate pacman installed gems which are installed to /usr/lib/ruby/gems/ and gem installed gems which are now installed to ~/.gem/
+The transition has been rather smooth for such a major default change and there were expected problems, but no serious problems have occurred.
+The main problem that some users faced was that they were unaware of the change, didn&#8217;t read the messages, and wondered why sudo gem install foo installed to /root/.gems/</p>
+
+<p>For haskell, I mainly worked on first removing haskell-platform and all of its packages from the extra repository, and then upgrading ghc to the latest stable release.
+Although most distros choose to use the haskell-platform, it makes less sense to do this in archlinux since it advertises itself as a rolling release distro which uses the latest stable version of software.
+Dropping the haskell-platform has removed a lot of haskell packages from extra and has freed us from having to use the same ghc version as the haskell-platform.
+The only packages remaining in extra are ghc and cabal-install along with their dependencies.
+There have been a few problems that users encountered, but the most common was that they were unaware that the haskell-platform has been removed.
+I did announce the removal, but some people just don&#8217;t read the mailing list.</p>
+
+<p>Both of these changes are a step in the right direction for archlinux in my opinion.
+Hopefully the changes make using these languages a better experience in the long run for arch users.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -450,6 +504,10 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/04/08/ruby-haskell-changes-in-archlinux/">ruby haskell changes in archlinux</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/02/04/automating-checking-for-new-package-with-crontab/">automating checking for new packages with crontab</a>
       </li>
     
@@ -463,10 +521,6 @@ An elegant solution can be found at Max Gonzih&#8217;s <a href="http://blog.gonz
     
       <li class="post">
         <a href="/blog/2012/02/01/watching-for-new-tags-in-git-and-other-vcss/">Watching for new tags in git and other VCSs</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/01/31/octopress-rocks/">Octopress Rocks</a>
       </li>
     
   </ul>
