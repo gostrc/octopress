@@ -57,3 +57,10 @@ I might consider switching over to it after doing some investigation into how it
 Hopefully this post helps others and helps me organize my thoughts on the topic.
 
 Cheers!
+
+**update:**
+I have reviewed the current situation with python and pip on archlinux and I prefer using pacman for python packages now.
+The reason is that there are already so many well maintained python packages.
+Also because pip doesn't support a way to easily upgrade all the packages which is something pacman provides.
+If it became more gem like providing the benefits of gem over pacman, I would consider using it for everything.
+Basically there is almost no incentive for me to switch, and there is a loss of functionality if I switched.

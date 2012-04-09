@@ -4,7 +4,7 @@
   <title><![CDATA[sherlock.heroku.com]]></title>
   <link href="http://sherlock.heroku.com/atom.xml" rel="self"/>
   <link href="http://sherlock.heroku.com/"/>
-  <updated>2012-04-08T19:34:26-05:00</updated>
+  <updated>2012-04-09T10:32:44-05:00</updated>
   <id>http://sherlock.heroku.com/</id>
   <author>
     <name><![CDATA[Thomas Dziedzic]]></name>
@@ -75,6 +75,13 @@ I might consider switching over to it after doing some investigation into how it
 <p>Hopefully this post helps others and helps me organize my thoughts on the topic.</p>
 
 <p>Cheers!</p>
+
+<p><strong>update:</strong>
+I have reviewed the current situation with python and pip on archlinux and I prefer using pacman for python packages now.
+The reason is that there are already so many well maintained python packages.
+Also because pip doesn&#8217;t support a way to easily upgrade all the packages which is something pacman provides.
+If it became more gem like providing the benefits of gem over pacman, I would consider using it for everything.
+Basically there is almost no incentive for me to switch, and there is a loss of functionality if I switched.</p>
 ]]></content>
   </entry>
   
